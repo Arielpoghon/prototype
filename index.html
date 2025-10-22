@@ -7,182 +7,249 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav">
-        <div class="nav-container">
-            <a href="#" class="logo">
+<body onload="initApp()">
+    <div id="success-message" class="message-snackbar"></div>
+
+    <div id="loading-spinner" class="spinner-overlay">
+        <div class="spinner"></div>
+    </div>
+    <div id="promotion-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal()">
+                &times;
+            </button>
+            <div class="modal-header">
+                <h2>Limited Time Offer!</h2>
+            </div>
+            <img src="https://images.unsplash.com/photo-1707734534246-b456bdb7db6c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlc2glMjBwcm9kdWNlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="Discount Banner" onerror="this.onerror=null;this.src='https://placehold.co/600x300/FBBF24/fff?text=50%25+OFF+TODAY';">
+            <div class="modal-body">
+                <h3>50% Off Your First Fresh Produce Order!</h3>
+                <p>Unlock premium savings on our freshest selection of fruits and vegetables. Use code <strong>FRESH50</strong> at checkout!</p>
+                <button class="btn btn-primary" onclick="closeModal(); showSearchView();">Shop Produce Now</button>
+            </div>
+        </div>
+    </div>
+    <div id="shop-view" class="active-view">
+        <nav class="desktop-nav">
+            <div class="nav-container">
+                <a href="javascript:void(0)" class="logo" onclick="showShopView()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 2L6 6M15 2l3 4M6 6h12l1 14H5L6 6z"/>
+                        <circle cx="9" cy="11" r="1"/><circle cx="15" cy="11" r="1"/>
+                    </svg>
+                    <span class="logo-text">Unique</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" onclick="showShopView()">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSearchView()">Shop All</a></li> 
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-secondary" onclick="openCartSidebar()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        <span class="cart-count" id="desktop-cart-count" style="display:none;">0</span>
+                    </button>
+                    <button class="btn" onclick="openAuthModal()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <span class="auth-btn">Profile</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <header class="mobile-header">
+            <a href="javascript:void(0)" class="logo" onclick="showShopView()">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M9 2L6 6M15 2l3 4M6 6h12l1 14H5L6 6z"/>
                     <circle cx="9" cy="11" r="1"/><circle cx="15" cy="11" r="1"/>
                 </svg>
-                Unique
+                <span class="logo-text">Unique</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="search-bar">
-                    <input type="text" id="search" placeholder="Search products...">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                    </svg>
+            <button class="btn btn-secondary cart-icon" onclick="openCartSidebar()" style="padding: 0.5rem 0.75rem;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <span class="cart-count" style="position: static; margin-left: 0.5rem; padding: 0; background: none; color: var(--white); border-radius: 0; font-size: 1rem; line-height: inherit;">0</span>
+            </button>
+        </header>
+        <div class="container view-section hero">
+            <div class="slideshow-container">
+                <div class="slideshow-track" id="slideshow-track">
+                    </div>
+            </div>
+            
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem;">Deals of the Week</h2>
+            <div class="products-grid" id="featured-products-grid">
                 </div>
-                <button class="user-btn" onclick="openAuthModal()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </button>
-                <button class="cart-btn" onclick="toggleCart()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 2L6 6M15 2l3 4M6 6h12l1 14H5L6 6z"/>
-                        <circle cx="9" cy="11" r="1"/><circle cx="15" cy="11" r="1"/>
-                    </svg>
-                    <span class="cart-badge" id="cart-badge">0</span>
-                </button>
+
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin: 3rem 0 1.5rem 0;">Browse All Items</h2>
+            <div class="products-grid" id="shop-all-products-grid">
+                </div>
+        </div>
+
+        <footer class="container" style="padding: 4rem 0; text-align: center; color: var(--text-gray);">
+            <p>&copy; 2023 Unique Supermarket. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div id="search-view" class="container view-section" style="display:none;">
+        <header class="mobile-header" style="height: auto; flex-direction: column; align-items: stretch; box-shadow: none;">
+            <h1 style="margin: 0 0 0.5rem 0; font-size: 2rem;">Product Catalog</h1>
+            <input type="text" id="desktop-search-input" placeholder="Search for products..." class="search-input" onkeyup="updateSearchQuery(this)">
+        </header>
+        
+        <div class="filter-bar">
+            <button class="filter-btn active" data-category="All" onclick="applyCategoryFilter('All')">All</button>
+            <button class="filter-btn" data-category="Groceries" onclick="applyCategoryFilter('Groceries')">Groceries</button>
+            <button class="filter-btn" data-category="Produce" onclick="applyCategoryFilter('Produce')">Produce</button>
+            <button class="filter-btn" data-category="Bakery" onclick="applyCategoryFilter('Bakery')">Bakery</button>
+            <button class="filter-btn" data-category="Beverages" onclick="applyCategoryFilter('Beverages')">Beverages</button>
+            <button class="filter-btn" data-category="Dairy" onclick="applyCategoryFilter('Dairy')">Dairy</button>
+        </div>
+
+        <div class="products-grid" id="search-products-grid">
+            </div>
+    </div>
+
+    <div id="product-detail-view" class="container view-section product-detail-view" style="display:none;">
+        <button class="btn btn-secondary" style="margin-bottom: 1rem;" onclick="goBackFromDetail()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; margin-right: 0.5rem;"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to Shop
+        </button>
+        <div id="detail-content" class="detail-content">
+            </div>
+    </div>
+    
+    <div id="admin-view" class="view-section" style="display:none;">
+        <header class="admin-header">
+            <h1 class="admin-title">Admin Dashboard</h1>
+            <button class="btn btn-secondary" onclick="showShopView()">Exit Admin</button>
+        </header>
+        <div class="container admin-content-section">
+            
+            <div class="add-product-form-container">
+                <h2>Add New Product</h2>
+                <form id="add-product-form" onsubmit="handleProductFormSubmit(event)">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="new-name">Name</label>
+                            <input type="text" id="new-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="new-category">Category</label>
+                            <select id="new-category" required>
+                                <option value="">Select Category</option>
+                                <option value="Groceries">Groceries</option>
+                                <option value="Produce">Produce</option>
+                                <option value="Bakery">Bakery</option>
+                                <option value="Beverages">Beverages</option>
+                                <option value="Dairy">Dairy</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="new-price">Price ($)</label>
+                            <input type="number" id="new-price" min="0.01" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="new-stock">Initial Stock</label>
+                            <input type="number" id="new-stock" min="0" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="new-rating">Rating (1.0 - 5.0)</label>
+                            <input type="number" id="new-rating" min="1.0" max="5.0" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="new-unit">Unit (e.g., 1L, 500g)</label>
+                            <input type="text" id="new-unit" required>
+                        </div>
+                        <div class="input-group" style="grid-column: 1 / -1;">
+                            <label for="new-description">Description</label>
+                            <textarea id="new-description" rows="3" required style="width:100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem;"></textarea>
+                        </div>
+                        <div class="input-group" style="grid-column: 1 / -1;">
+                            <label for="new-image">Image URL (Optional)</label>
+                            <input type="url" id="new-image" placeholder="Paste image link here">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Add Product</button>
+                </form>
+            </div>
+
+            <div class="admin-products">
+                <h2>Manage Stock & Products</h2>
+                <div id="admin-product-list">
+                    </div>
             </div>
         </div>
-    </nav>
-    <!-- Mobile Header -->
-    <div class="mobile-header">
-        <a href="#" class="logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 2L6 6M15 2l3 4M6 6h12l1 14H5L6 6z"/>
-                <circle cx="9" cy="11" r="1"/><circle cx="15" cy="11" r="1"/>
-            </svg>
-            Unique
-        </a>
-        <div class="mobile-header-actions">
-            <button class="search-mobile-btn" onclick="toggleMobileSearch()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                </svg>
-            </button>
-            <button class="cart-btn" onclick="toggleCart()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 2L6 6M15 2l3 4M6 6h12l1 14H5L6 6z"/>
-                    <circle cx="9" cy="11" r="1"/><circle cx="15" cy="11" r="1"/>
-                </svg>
-                <span class="cart-badge" id="mobile-cart-badge">0</span>
+    </div>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="sidebar-header">
+            <h2>Your Cart</h2>
+            <button class="close-btn" onclick="closeAll()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
         </div>
-    </div>
-    <!-- Mobile Search Modal -->
-    <div class="mobile-search-modal" id="mobile-search-modal">
-        <div class="mobile-search-container">
-            <input type="text" id="mobile-search" placeholder="Search products..." oninput="searchProducts(this.value)">
-            <button class="close-mobile-search" onclick="toggleMobileSearch()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-    <!-- Slideshow Section -->
-    <div class="slideshow-container" id="product-slideshow">
-        <!-- Slides will be dynamically inserted here -->
-    </div>
-    <!-- Main Content -->
-    <div class="container" id="products">
-        <h2 class="section-title">Our Products</h2>
-        <!-- Filters -->
-        <div class="filters">
-            <button class="filter-btn active" onclick="filterProducts('all')">All</button>
-            <button class="filter-btn" onclick="filterProducts('Groceries')">Groceries</button>
-            <button class="filter-btn" onclick="filterProducts('Beverages')">Beverages</button>
-            <button class="filter-btn" onclick="filterProducts('Dairy')">Dairy</button>
-            <button class="filter-btn" onclick="filterProducts('Bakery')">Bakery</button>
-            <button class="filter-btn" onclick="filterProducts('Snacks')">Snacks</button>
-            <button class="filter-btn" onclick="filterProducts('Household')">Household</button>
-        </div>
-        <!-- Product Grid -->
-        <div class="product-grid" id="product-grid"></div>
-        <!-- Admin Panel -->
-        <div class="admin-panel" id="admin-panel" style="display: none;">
-            <h2 class="section-title">Inventory Management</h2>
-            <div class="admin-product-list" id="admin-list"></div>
-        </div>
-    </div>
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h2>Shopping Cart</h2>
-            <button class="close-cart" onclick="toggleCart()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
-        <div class="cart-items" id="cart-items"></div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total">$0.00</span>
+        <div class="cart-items" id="cart-items">
             </div>
-            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        <div class="cart-summary">
+            <div class="summary-line">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Proceed to Checkout</button>
         </div>
     </div>
-    <!-- Mobile Navigation -->
+
+    <div id="overlay" class="overlay" onclick="closeAll()"></div>
+
     <nav class="mobile-nav">
-        <a href="#home" class="mobile-nav-item active">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            </svg>
+        <a href="javascript:void(0)" class="mobile-nav-item active" onclick="showShopView();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             <span>Home</span>
         </a>
-        <a href="#products" class="mobile-nav-item">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18"/>
-            </svg>
-            <span>Categories</span>
+        <a href="javascript:void(0)" class="mobile-nav-item" onclick="showSearchView();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Shop</span>
         </a>
-        <a href="#" class="mobile-nav-item" onclick="toggleCart(); return false;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 2L6 6M15 2l3 4M6 6h12l1 14H5L6 6z"/>
-            </svg>
-            <span>Cart</span>
+        <a href="javascript:void(0)" class="mobile-nav-item cart-icon" onclick="openCartSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span id="mobile-cart-count" class="cart-count" style="display:none;">0</span>
         </a>
-        <a href="#" class="mobile-nav-item" onclick="alert('Order history coming soon!'); return false;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
-            </svg>
-            <span>Orders</span>
-        </a>
-        <a href="#" class="mobile-nav-item" onclick="openAuthModal(); return false;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-            </svg>
-            <span>Profile</span>
+        <a href="javascript:void(0)" class="mobile-nav-item" onclick="openAuthModal();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span class="auth-btn">Profile</span>
         </a>
     </nav>
-    <!-- Overlay -->
-    <div class="overlay" id="overlay" onclick="closeAll()"></div>
-    <!-- Auth Modal -->
-    <div class="modal" id="auth-modal">
-        <h2>Welcome Back!</h2>
-        <form onsubmit="login(event)">
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" required placeholder="your@email.com">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" required placeholder="••••••••">
-            </div>
-            <div class="modal-actions">
-                <button type="submit" class="btn btn-primary">Login</button>
-                <button type="button" class="btn btn-secondary" onclick="closeAuthModal()">Cancel</button>
-            </div>
-        </form>
-    </div>
-    <!-- Success Message -->
-    <div class="success-message" id="success-message"></div>
+    
+    <script>
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection, query, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Initialization and Authentication
+        let app, db, auth;
+        if (firebaseConfig) {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            setLogLevel('Debug'); // Enable debug logging for Firestore
+
+            // Sign in process
+            onAuthStateChanged(auth, async (user) => {
+                if (!user) {
+                    // Sign in with the provided token if available, otherwise anonymously
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                }
+            });
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

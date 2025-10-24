@@ -1,5 +1,6 @@
 // UI-related functionality
 import { getState, updateState } from './utils.js';
+import { renderHomeProducts } from './product.js';
 
 export function simulateLoading(ms = 300) {
     const spinner = document.getElementById('loading-spinner');

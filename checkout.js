@@ -36,8 +36,8 @@ export function closeCheckoutModal() {
 
 export function renderCheckoutForm() {
     const subtotal = calculateSubtotal();
-    const tax = subtotal * 0.08; // 8% tax
-    const shipping = subtotal > 50 ? 0 : 5.99; // Free shipping over $50
+    const tax = subtotal * 0.16; // 16% VAT in Kenya
+    const shipping = subtotal > 5000 ? 0 : 500; // Free shipping over KSh 5000
     const total = subtotal + tax + shipping;
 
     const checkoutModal = document.getElementById('checkout-modal');
@@ -121,36 +121,36 @@ export function renderCheckoutForm() {
                                                     <img src="${item.product.image}" alt="${item.product.name}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 0.25rem;">
                                                     <div>
                                                         <div style="font-weight: 600; font-size: 0.9rem;">${item.product.name}</div>
-                                                        <div style="color: var(--text-gray); font-size: 0.8rem;">Qty: ${item.quantity} × $${item.product.price.toFixed(2)}</div>
+                                                        <div style="color: var(--text-gray); font-size: 0.8rem;">Qty: ${item.quantity} × KSh ${Math.round(item.product.price).toLocaleString()}</div>
                                                     </div>
                                                 </div>
-                                                <span style="font-weight: 600;">$${(item.product.price * item.quantity).toFixed(2)}</span>
+                                                <span style="font-weight: 600;">KSh ${Math.round(item.product.price * item.quantity).toLocaleString()}</span>
                                             </div>
                                         `).join('')}
                                     </div>
                                     <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 1rem 0;">
                                     <div class="summary-item">
                                         <span>Subtotal:</span>
-                                        <span>$${subtotal.toFixed(2)}</span>
+                                        <span>KSh ${Math.round(subtotal).toLocaleString()}</span>
                                     </div>
                                     <div class="summary-item">
-                                        <span>Tax (8%):</span>
-                                        <span>$${tax.toFixed(2)}</span>
+                                        <span>VAT (16%):</span>
+                                        <span>KSh ${Math.round(tax).toLocaleString()}</span>
                                     </div>
                                     <div class="summary-item">
                                         <span>Shipping:</span>
-                                        <span>${shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2)}</span>
+                                        <span>${shipping === 0 ? 'FREE' : 'KSh ' + Math.round(shipping).toLocaleString()}</span>
                                     </div>
                                     <div class="summary-item total">
                                         <span>Total:</span>
-                                        <span>$${total.toFixed(2)}</span>
+                                        <span>KSh ${Math.round(total).toLocaleString()}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 2rem; font-size: 1.1rem; padding: 1rem;">
-                            💳 Complete Order - $${total.toFixed(2)}
+                            💳 Complete Order - KSh ${Math.round(total).toLocaleString()}
                         </button>
                     </form>
                 </div>
@@ -169,22 +169,22 @@ export function renderCheckoutForm() {
                             <img src="${item.product.image}" alt="${item.product.name}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 0.25rem;">
                             <div>
                                 <div style="font-weight: 600; font-size: 0.9rem;">${item.product.name}</div>
-                                <div style="color: var(--text-gray); font-size: 0.8rem;">Qty: ${item.quantity} × $${item.product.price.toFixed(2)}</div>
+                                <div style="color: var(--text-gray); font-size: 0.8rem;">Qty: ${item.quantity} × KSh ${Math.round(item.product.price).toLocaleString()}</div>
                             </div>
                         </div>
-                        <span style="font-weight: 600;">$${(item.product.price * item.quantity).toFixed(2)}</span>
+                        <span style="font-weight: 600;">KSh ${Math.round(item.product.price * item.quantity).toLocaleString()}</span>
                     </div>
                 `).join('');
             }
 
             const totalElement = summary.querySelector('.summary-item.total span:last-child');
             if (totalElement) {
-                totalElement.textContent = `$${total.toFixed(2)}`;
+                totalElement.textContent = `KSh ${Math.round(total).toLocaleString()}`;
             }
 
             const submitBtn = checkoutModal.querySelector('button[type="submit"]');
             if (submitBtn) {
-                submitBtn.textContent = `💳 Complete Order - $${total.toFixed(2)}`;
+                submitBtn.textContent = `💳 Complete Order - KSh ${Math.round(total).toLocaleString()}`;
             }
         }
     }
@@ -276,9 +276,9 @@ export function handleCheckoutSubmit(event) {
         })),
         pricing: {
             subtotal: calculateSubtotal(),
-            tax: calculateSubtotal() * 0.08,
-            shipping: calculateSubtotal() > 50 ? 0 : 5.99,
-            total: calculateSubtotal() + (calculateSubtotal() * 0.08) + (calculateSubtotal() > 50 ? 0 : 5.99)
+            tax: calculateSubtotal() * 0.16,
+            shipping: calculateSubtotal() > 5000 ? 0 : 500,
+            total: calculateSubtotal() + (calculateSubtotal() * 0.16) + (calculateSubtotal() > 5000 ? 0 : 500)
         },
         orderDate: new Date().toISOString(),
         status: 'confirmed',
@@ -352,7 +352,7 @@ function showOrderConfirmation(orderData) {
                     <div style="background: var(--bg-light); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
                         <h4 style="margin-bottom: 0.5rem;">📦 Order Details</h4>
                         <p style="font-size: 0.9rem; color: var(--text-gray); margin: 0.25rem 0;">
-                            <strong>Total:</strong> $${orderData.pricing.total.toFixed(2)}
+                            <strong>Total:</strong> KSh ${Math.round(orderData.pricing.total).toLocaleString()}
                         </p>
                         <p style="font-size: 0.9rem; color: var(--text-gray); margin: 0.25rem 0;">
                             <strong>Items:</strong> ${orderData.items.length} product${orderData.items.length !== 1 ? 's' : ''}

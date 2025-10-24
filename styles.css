@@ -346,7 +346,7 @@ body.dark-mode .mobile-header {
 
     /* Adjust product grid for mobile */
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 1.5rem;
     }
 
@@ -712,6 +712,201 @@ body.dark-mode .mobile-header {
     .input-group {
         margin-bottom: 1rem;
     }
+
+    /* Additional mobile responsiveness improvements */
+    .nav-container {
+        padding: 0 0.5rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-actions {
+        gap: 0.5rem;
+    }
+
+    .nav-actions button {
+        padding: 0.5rem;
+        min-width: 40px;
+    }
+
+    .view-section {
+        padding: 1rem 0.5rem;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .detail-content {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
+    .detail-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .detail-price-section .product-price {
+        font-size: 1.5rem;
+    }
+
+    .checkout-layout {
+        flex-direction: column;
+    }
+
+    .checkout-form-container {
+        order: 2;
+    }
+
+    .checkout-summary-sidebar {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+
+    .checkout-summary {
+        margin-bottom: 0;
+    }
+
+    .admin-content-section {
+        padding: 1rem 0.5rem;
+        gap: 1rem;
+    }
+
+    .admin-products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .admin-search-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .bulk-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .advanced-filters-panel {
+        min-width: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-info h3 {
+        font-size: 0.8rem;
+    }
+
+    .stat-info p {
+        font-size: 1.2rem;
+    }
+
+    /* Improve mobile table scrolling */
+    .comparison-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .comparison-cell {
+        min-width: 100px;
+        white-space: nowrap;
+    }
+
+    /* Mobile-specific adjustments for better usability */
+    .message-snackbar {
+        bottom: 80px;
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        max-width: none;
+    }
+
+    .spinner-overlay {
+        padding: 1rem;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Improve mobile form inputs */
+    .input-group input,
+    .input-group select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.875rem;
+    }
+
+    /* Better mobile button spacing */
+    .btn {
+        margin: 0.25rem 0;
+    }
+
+    /* Mobile-specific slideshow adjustments */
+    .slideshow-container {
+        margin: 0 0.5rem;
+        border-radius: 0.75rem;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    /* FIX 2: Ensure background images display correctly on all slides */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease;
+    }
+
+    .slide h1 {
+        font-size: 1.5rem;
+    }
+
+    .slide p {
+        font-size: 0.9rem;
+    }
+
+    /* Improve mobile recently viewed */
+    .recently-viewed-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .recent-product-card {
+        padding: 0.5rem;
+    }
+
+    .recent-product-card img {
+        width: 100%;
+        height: 50px;
+    }
+
+    .recent-product-info h4 {
+        font-size: 0.8rem;
+    }
+
+    .recent-price {
+        font-size: 0.75rem;
+    }
 }
 /* Mobile Navigation  */
 .mobile-nav {
@@ -1004,6 +1199,7 @@ body.dark-mode .mobile-nav {
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out;
+    min-height: 600px;
 }
 
 @keyframes fadeInUp {

@@ -212,7 +212,7 @@ const productsData = [
         category: 'Beverages',
         price: 499,
         stock: 75,
-        image: 'https://images.unsplash.com/photo-1576092762793-c0e14b9c2a0f?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1728977627327-da9907c25cd9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGdyZWVuJTIwdGVhJTIwYmFnc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
         rating: 4.2,
         description: 'Premium green tea bags with natural antioxidants. Perfect for a refreshing morning boost.',
         reviews: [
@@ -392,7 +392,7 @@ const productsData = [
         category: 'Snacks',
         price: 299,
         stock: 65,
-        image: 'https://images.unsplash.com/photo-1566479179818-f7c5c5a5f1f2?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1694101493127-eca6dfef5011?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHBvdGF0byUyMGNoaXBzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500',
         rating: 4.2,
         description: 'Crispy potato chips with sea salt. Perfect for movie nights or parties.',
         reviews: [
@@ -412,7 +412,7 @@ const productsData = [
         category: 'Household',
         price: 349,
         stock: 50,
-        image: 'https://images.unsplash.com/photo-1584208124881-74d038af6596?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1647577746559-c9a28c0d0870?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlzaCUyMHNvYXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
         rating: 4.0,
         description: 'Effective dish soap that cuts through grease. Gentle on hands.',
         reviews: [
@@ -472,7 +472,7 @@ const productsData = [
         category: 'Groceries',
         price: 249,
         stock: 85,
-        image: 'https://images.unsplash.com/photo-1551467847-0d2026d8a8ba?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1605888969139-42cca4308aa2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHNwYWdoZXR0aSUyMHBhc3RhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500',
         rating: 4.4,
         description: 'Classic spaghetti pasta. Perfect for Italian dishes and sauces.',
         reviews: [
@@ -532,7 +532,7 @@ const productsData = [
         category: 'Beverages',
         price: 699,
         stock: 40,
-        image: 'https://images.unsplash.com/photo-1546173159-315724a3167a?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1638688569176-5b6db19f9d2a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvdHRsZWQlMjBzcGFrbGluZyUyMHdhdGVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500',
         rating: 4.4,
         description: 'Refreshing sparkling water. Zero calories, perfect for hydration.',
         reviews: [
@@ -590,7 +590,7 @@ const productsData = [
         name: 'Salmon Fillet',
         unit: '6 oz',
         category: 'Seafood',
-        price: 1299,
+        price: 1650,
         stock: 15,
         image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=400',
         rating: 4.8,
@@ -752,7 +752,7 @@ const productsData = [
         category: 'Seafood',
         price: 2499,
         stock: 8,
-        image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1511543865714-5a5a5ce51a94?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3JhYiUyMGxlZ3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
         rating: 4.9,
         description: 'King crab legs. Sweet and succulent, perfect for special dinners.',
         reviews: [
@@ -760,9 +760,9 @@ const productsData = [
             { user: 'Oliver K.', rating: 5, comment: 'Worth every penny.' }
         ],
         gallery: [
-            'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=400',
-            'https://images.unsplash.com/photo-1574484284002-952d92456975?q=80&w=400',
-            'https://images.unsplash.com/photo-1571066811602-716837d681de?q=80&w=400'
+            'https://images.unsplash.com/photo-1727741249543-4f198d637191?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y3JhYiUyMGxlZ3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
+            'https://images.unsplash.com/photo-1511543865714-5a5a5ce51a94?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3JhYiUyMGxlZ3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
+            'https://plus.unsplash.com/premium_photo-1726837302722-fb69451926e2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fGNyYWIlMjBsZWdzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500'
         ]
     },
     {
@@ -872,7 +872,7 @@ const productsData = [
         category: 'Seafood',
         price: 1199,
         stock: 18,
-        image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1633960413118-d22d9be39641?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2xhbXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
         rating: 4.5,
         description: 'Fresh littleneck clams. Perfect for pasta or steamed with garlic.',
         reviews: [
@@ -992,7 +992,7 @@ const productsData = [
         category: 'Seafood',
         price: 1899,
         stock: 16,
-        image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=400',
+        image: 'https://images.unsplash.com/photo-1578882422378-9ed72be08b5e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3lzdGVyc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
         rating: 4.6,
         description: 'Fresh oysters on the half shell. Perfect for raw or cooked preparations.',
         reviews: [
@@ -1000,7 +1000,7 @@ const productsData = [
             { user: 'Sarah K.', rating: 4, comment: 'Good quality oysters.' }
         ],
         gallery: [
-            'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=400',
+            'https://images.unsplash.com/photo-1578882422378-9ed72be08b5e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3lzdGVyc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
             'https://images.unsplash.com/photo-1574484284002-952d92456975?q=80&w=400',
             'https://images.unsplash.com/photo-1571066811602-716837d681de?q=80&w=400'
         ]
@@ -1413,32 +1413,32 @@ function initApp() {
             // Array of slide data
             const slideData = [
                 {
-                    image: 'https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=1200&h=600&fit=crop&auto=format&q=80',
+                    image: 'https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=1200&h=600&fit=crop&auto=format&q=8',
                     title: 'Freshness Delivered',
                     subtitle: 'Curated selection, straight to your door'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1563377225929-7084bcef8e24?w=1200&h=600&fit=crop&auto=format&q=80',
+                    image: 'https://images.unsplash.com/photo-1568626913161-c4ac1e5ae186?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTR8fHN1c3RhaW5hYmxlJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
                     title: 'Sustainable Shopping',
                     subtitle: 'High quality products, responsibly sourced'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop&auto=format&q=80',
+                    image: 'https://plus.unsplash.com/premium_photo-1682309806385-91127e81ef3f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByZW1pdW0lMjBxdWFsaXR5fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500',
                     title: 'Premium Quality',
                     subtitle: 'Only the finest ingredients for your table'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop&auto=format&q=80',
+                    image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEhlYWx0aHklMjBsaXZpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
                     title: 'Healthy Living',
                     subtitle: 'Nutritious choices for a better lifestyle'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1556909114-2c3e5a9a8e8e?w=1200&h=600&fit=crop&auto=format&q=80',
+                    image: 'https://plus.unsplash.com/premium_photo-1675366072716-5df080d0e5df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bG9jYWwlMjBhbmQlMjBmcmVzaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
                     title: 'Local & Fresh',
                     subtitle: 'Supporting local farmers and producers'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop&auto=format&q=80',
+                    image: 'https://plus.unsplash.com/premium_photo-1661490092470-83bb9a29f262?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fHF1YWxpdHklMjBmb29kc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
                     title: 'Quality Assured',
                     subtitle: 'Every product meets our high standards'
                 }

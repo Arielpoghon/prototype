@@ -81,6 +81,7 @@ export const showSearchView = () => {
     if (searchInput) {
         searchInput.value = appState.currentSearchQuery;
     }
+    // Initialize with all products first, then apply filters
     renderProducts('search-products-grid', window.productsData);
     applyFilters();
     renderRecentlyViewed();
@@ -157,7 +158,7 @@ export function renderWishlist() {
                 <img src="${product.image}" alt="${product.name}" onerror="this.onerror=null;this.src='https://placehold.co/80x80/F3F4F6/6B7280?text=Img';">
                 <div class="item-details">
                     <span class="item-name">${product.name}</span>
-                    <span class="item-price">$${product.price.toFixed(2)}</span>
+                    <span class="item-price">KSh ${Math.round(product.price).toLocaleString()}</span>
                 </div>
                 <div class="item-actions">
                     <button class="btn btn-primary" onclick="addToCart(${product.id}, 1); closeAll();">Add to Cart</button>
@@ -221,7 +222,7 @@ export function renderComparison() {
             <span>${product.name}</span>
             <button class="remove-compare-btn" onclick="removeFromComparison(${product.id})">×</button>
         </div>`,
-        `$${product.price.toFixed(2)}`,
+        `KSh ${Math.round(product.price).toLocaleString()}`,
         renderRatingStars(product.rating),
         product.stock > 0 ? `${product.stock} in stock` : 'Out of stock',
         product.category,
@@ -261,7 +262,7 @@ export function renderRecentlyViewed() {
             <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/80x80/F3F4F6/6B7280?text=Img';">
             <div class="recent-product-info">
                 <h4>${product.name}</h4>
-                <span class="recent-price">$${product.price.toFixed(2)}</span>
+                <span class="recent-price">KSh ${Math.round(product.price).toLocaleString()}</span>
             </div>
         </div>
     `).join('');

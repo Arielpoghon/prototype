@@ -16,7 +16,7 @@ export function renderProducts(targetGridId, products) {
 
         if (isListView) {
             return `
-                <div class="product-card list-view" data-id="${product.id}" role="gridcell" tabindex="0" aria-label="${product.name}, ${product.unit}, $${product.price.toFixed(2)}, ${product.stock > 0 ? stockText : 'Out of stock'}" onkeydown="handleCardKeydown(event, ${product.id})">
+                <div class="product-card list-view" data-id="${product.id}" role="gridcell" tabindex="0" aria-label="${product.name}, ${product.unit}, KSh ${Math.round(product.price * 130).toLocaleString()}, ${product.stock > 0 ? stockText : 'Out of stock'}" onkeydown="handleCardKeydown(event, ${product.id})">
                     <div class="list-image-container" onclick="showProductDetailView(${product.id})" role="button" tabindex="-1" aria-label="View details for ${product.name}">
                         <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/120x120/F3F4F6/6B7280?text=Image';">
                         ${product.stock === 0 ? '<span class="out-of-stock-badge">Out of Stock</span>' : `<span class="${stockBadgeClass}">${stockText}</span>`}
@@ -53,7 +53,7 @@ export function renderProducts(targetGridId, products) {
             `;
         } else {
             return `
-                <div class="product-card" data-id="${product.id}" role="gridcell" tabindex="0" aria-label="${product.name}, ${product.unit}, $${product.price.toFixed(2)}, ${product.stock > 0 ? stockText : 'Out of stock'}" onkeydown="handleCardKeydown(event, ${product.id})">
+                <div class="product-card" data-id="${product.id}" role="gridcell" tabindex="0" aria-label="${product.name}, ${product.unit}, KSh ${Math.round(product.price * 130).toLocaleString()}, ${product.stock > 0 ? stockText : 'Out of stock'}" onkeydown="handleCardKeydown(event, ${product.id})">
                     <div class="product-image-container" onclick="showProductDetailView(${product.id})" role="button" tabindex="-1" aria-label="View details for ${product.name}">
                         <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F3F4F6/6B7280?text=Image';">
                         ${product.stock === 0 ? '<span class="out-of-stock-badge">Out of Stock</span>' : `<span class="${stockBadgeClass}">${stockText}</span>`}

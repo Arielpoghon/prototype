@@ -79,7 +79,7 @@ export function renderCart() {
                 <img src="${item.product.image}" alt="${item.product.name}" onerror="this.onerror=null;this.src='https://placehold.co/50x50/F3F4F6/6B7280?text=Img';">
                 <div class="item-details">
                     <span class="item-name">${item.product.name}</span>
-                    <span class="item-price">$${item.product.price.toFixed(2)} / ${item.product.unit}</span>
+                    <span class="item-price">KSh ${Math.round(item.product.price).toLocaleString()} / ${item.product.unit}</span>
                 </div>
                 <div class="item-controls">
                     <div class="quantity-controls">
@@ -91,12 +91,12 @@ export function renderCart() {
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                     </button>
                 </div>
-                <span class="item-total">$${(item.product.price * item.quantity).toFixed(2)}</span>
+                <span class="item-total">KSh ${Math.round(item.product.price * item.quantity).toLocaleString()}</span>
             </div>
         `).join('');
 
         cartItemsEl.innerHTML = itemsHtml;
-        subtotalEl.textContent = `$${calculateSubtotal().toFixed(2)}`;
+        subtotalEl.textContent = `KSh ${Math.round(calculateSubtotal()).toLocaleString()}`;
     }
     updateCartCount();
 }

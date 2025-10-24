@@ -1,5 +1,5 @@
 // Filter and search functionality
-import { getState } from './utils.js';
+import { getState, updateState } from './utils.js';
 
 export function applyFilters() {
     let filteredProducts = window.productsData;

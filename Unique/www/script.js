@@ -88,11 +88,10 @@ window.safeLocalStorageGet = safeLocalStorageGet;
 window.safeLocalStorageSet = safeLocalStorageSet;
 window.handleFirebaseError = handleFirebaseError;
 window.trapFocus = trapFocus;
-window.showPromotionModal = showPromotionModal;
-window.closeModal = closeModal;
+window.toggleDarkMode = toggleDarkMode;
 window.showAboutSection = showAboutSection;
 window.showContactSection = showContactSection;
-window.handleContactForm = handleContactForm;
+window.closeModal = closeModal;
 
 // Dark mode toggle function
 function toggleDarkMode() {
@@ -101,9 +100,13 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', isDarkMode);
 }
 
-window.toggleDarkMode = toggleDarkMode;
-
-
+// Load dark mode preference on app initialization
+function loadDarkModePreference() {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+    }
+}
 
 // Promotion modal function
 function showPromotionModal() {
@@ -124,7 +127,7 @@ function closeModal() {
 }
 
 const productsData = [
-    // Added rating description unit reviews and gallery properties
+    // Added 'rating', 'description', 'unit', 'reviews', and 'gallery' properties
     {
         id: 1,
         name: 'Basmati Rice',
@@ -1149,7 +1152,7 @@ const productsData = [
 
 window.productsData = productsData;
 
-// State Management 
+// --- State Management ---
 let appState = {
     cart: [],
     wishlist: [],
@@ -1364,11 +1367,25 @@ function startSlideshow() {
     resetInterval();
 }
 
+// --- Utility Functions ---
+// (Functions moved to modules)
 
+// (Functions moved to modules)
+
+// (Functions moved to modules)
+
+// --- Core Logic ---
+
+// (Functions moved to modules)
+
+
+// (Functions moved to modules)
+
+
+// --- Initialization ---
 
 // Make initApp globally available
 window.initApp = initApp;
-window.startSlideshow = startSlideshow;
 
 function initApp() {
     console.log("App initializing...");
@@ -1386,10 +1403,7 @@ function initApp() {
     updateState({ currentViewMode: savedViewMode });
 
     // Load dark mode preference
-    const darkMode = localStorage.getItem('darkMode') === 'true';
-    if (darkMode) {
-        document.body.classList.add('dark-mode');
-    }
+    loadDarkModePreference();
 
     // Initialize analytics
     updateAnalytics();
